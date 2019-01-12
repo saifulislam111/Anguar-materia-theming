@@ -1,0 +1,103 @@
+<div [class]="theme">
+
+
+  <mat-sidenav-container class="example-sidenav-container" fullscreen>
+    <mat-sidenav #sidenav [opened]="mobileQuery.matches ? false : true"
+                 [mode]="mobileQuery.matches ? 'side' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" class="overfow-hidden">
+      <mat-toolbar color="accent">
+        <img src="https://i2.wp.com/selise.ch/wp-content/uploads/2016/01/selise-logo.png?fit=300%2C73&ssl=1"
+             width="150px">
+        <!--<h1 class="logo">-->
+        <!--SEISE.-->
+        <!--<span style="font-size: 12px;">ch</span>-->
+        <!--</h1>-->
+      </mat-toolbar>
+      <cdk-sidemenu></cdk-sidemenu>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+      <mat-toolbar color="primary" fxLayout="row">
+        <div fxFlex="50" fxLayout="row" fxLayoutAlign="start center">
+          <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <!--<h1 class="m-0 p-0">Angular Material Theming</h1>-->
+          <div class="pl-30 pr-30"
+               fxLayout="row"
+               fxLayoutAlign="center center" fxHide fxShow.gt-sm>
+            <mat-icon>search</mat-icon>
+            <form class="mb-5">
+              <input placeholder="Search..." class="search-field">
+            </form>
+          </div>
+          <button class="ml-20 cursor-pointer" fxHide fxShow.gt-sm>
+            <span>Home</span>
+          </button>
+          <button class="ml-20 cursor-pointer" fxHide fxShow.gt-sm>
+            <span>About</span>
+          </button>
+        </div>
+        <div fxFlex="50" fxLayout="row" fxLayoutAlign="end center">
+          <button mat-icon-button>
+            <mat-icon>zoom_out_map</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>notifications_none</mat-icon>
+          </button>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="theme='my-theme'">Light Theme</button>
+            <button mat-menu-item (click)="theme='my-second-theme'">Dark Theme</button>
+          </mat-menu>
+        </div>
+      </mat-toolbar>
+
+      <div class="pl-25 pr-25 pt-20 pb-20">
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <h1 *ngIf="theme==='my-theme'" ngClass.sm="font-size-14" ngClass.xs="font-size-14">
+            Welcome to my Light Theme!
+          </h1>
+          <h1 *ngIf="theme==='my-second-theme'" ngClass.sm="font-size-14" ngClass.xs="font-size-14">
+            Welcome to my Dark Theme!
+          </h1>
+        </div>
+        <div fxLayout.gt-sm="row wrap"
+             fxLayout="column"
+             fxLayoutGap.gt-sm="20px"
+             fxLayoutAlign="center center" class="mt-30">
+          <mat-card class="w-200-px">
+            Card-1
+          </mat-card>
+          <mat-card class="w-200-px" ngClass.sm="mt-5" ngClass.xs="mt-5">
+            Card-2
+          </mat-card>
+          <mat-card class="w-200-px" ngClass.sm="mt-5" ngClass.xs="mt-5">
+            Card-3
+          </mat-card>
+          <mat-card class="w-200-px" ngClass.sm="mt-5" ngClass.xs="mt-5">
+            Card-4
+          </mat-card>
+        </div>
+
+        <mat-card class="mt-30" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+          <button mat-raised-button color="primary">Primary</button>
+          <button mat-raised-button color="accent">Accent</button>
+          <button mat-raised-button color="warn">Warn</button>
+        </mat-card>
+
+        <!--<mat-card class="mb-20">-->
+        <!--<mat-select placeholder="Themes" [(ngModel)]="theme" (change)="onThemeChange()">-->
+        <!--<mat-option value="my-theme">My Theme (Light)</mat-option>-->
+        <!--<mat-option value="my-second-theme">My Second Theme (Dark)</mat-option>-->
+        <!--</mat-select>-->
+        <!--</mat-card>-->
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>
