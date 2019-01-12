@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
     selector: 'cdk-sidemenu-item',
@@ -6,12 +6,16 @@ import { Component, OnInit, Input } from '@angular/core';
     styleUrls: ['./sidemenu-item.component.scss']
 })
 export class SidemenuItemComponent implements OnInit {
-
-    @Input() menu;
+  @Output() valueChange = new EventEmitter();
+  @Input() menu;
 
     constructor() { }
 
     ngOnInit() {
     }
+
+  navBarClicked() {
+      this.valueChange.emit(this.menu)
+  }
 
 }

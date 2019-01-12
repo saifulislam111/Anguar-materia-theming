@@ -10,7 +10,6 @@ import {ChangeDetectorRef, OnDestroy} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'amte';
   theme = 'my-theme';
 
   mobileQuery: MediaQueryList;

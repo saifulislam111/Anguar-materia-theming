@@ -4,7 +4,7 @@
         <div fxLayoutAlign="space-around center" [style.margin]="'10px 0px'" >
           <img width="100" [style.borderRadius]="'50%'" src="./assets/user-image.jpg">
         </div>
-        <cdk-sidemenu-item *ngFor="let menu of menus" [menu]="menu"> </cdk-sidemenu-item>
+        <cdk-sidemenu-item *ngFor="let menu of menus" [menu]="menu" (valueChange)='displayCounter($event)'> </cdk-sidemenu-item>
     </div>
     
 <!--</perfect-scrollbar>-->

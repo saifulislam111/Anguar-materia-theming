@@ -2,7 +2,7 @@ export const menus = [
   {
     'name': 'Dashboard',
     'icon': 'dashboard',
-    'active': false,
+    'active': true,
   },
   {
     'name': 'Buttons',

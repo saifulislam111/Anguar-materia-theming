@@ -15,4 +15,14 @@ export class SidemenuComponent implements OnInit {
     ngOnInit() {
     }
 
+  displayCounter(event) {
+      for(let i =0; i<this.menus.length; i++) {
+        if(this.menus[i].name != event.name) {
+          this.menus[i].active = false;
+        }
+      }
+      event.active = true;
+
+  }
+
 }
